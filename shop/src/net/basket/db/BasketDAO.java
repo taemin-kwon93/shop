@@ -48,18 +48,12 @@ public class BasketDAO {
 				GoodsBean goods = new GoodsBean();
 				
 				dto.setBASKET_NUM(rs.getInt("BASKET_NUM"));
-				dto.setBASKET_MEMBER_ID(
-						rs.getString("BASKET_MEMBER_ID"));
-				dto.setBASKET_GOODS_NUM(
-						rs.getInt("BASKET_GOODS_NUM"));
-				dto.setBASKET_GOODS_AMOUNT(
-						rs.getInt("BASKET_GOODS_AMOUNT"));
-				dto.setBASKET_GOODS_SIZE(
-						rs.getString("BASKET_GOODS_SIZE"));
-				dto.setBASKET_GOODS_COLOR(
-						rs.getString("BASKET_GOODS_COLOR"));
-				dto.setBASKET_DATE(
-						rs.getDate("BASKET_DATE"));
+				dto.setBASKET_MEMBER_ID(rs.getString("BASKET_MEMBER_ID"));
+				dto.setBASKET_GOODS_NUM(rs.getInt("BASKET_GOODS_NUM"));
+				dto.setBASKET_GOODS_AMOUNT(rs.getInt("BASKET_GOODS_AMOUNT"));
+				dto.setBASKET_GOODS_SIZE(rs.getString("BASKET_GOODS_SIZE"));
+				dto.setBASKET_GOODS_COLOR(rs.getString("BASKET_GOODS_COLOR"));
+				dto.setBASKET_DATE(rs.getDate("BASKET_DATE"));
 				
 				sql = "select * from goods where goods_num=?";
 				pstmt = conn.prepareStatement(sql);
@@ -67,12 +61,9 @@ public class BasketDAO {
 				rs1 = pstmt.executeQuery();
 				
 				if(rs1.next()){
-					goods.setGOODS_NAME(
-							rs1.getString("goods_name"));
-					goods.setGOODS_PRICE(
-							rs1.getInt("goods_price"));
-					goods.setGOODS_IMAGE(
-							rs1.getString("GOODS_IMAGE"));
+					goods.setGOODS_NAME(rs1.getString("goods_name"));
+					goods.setGOODS_PRICE(rs1.getInt("goods_price"));
+					goods.setGOODS_IMAGE(rs1.getString("GOODS_IMAGE"));
 				}else{
 					return null;
 				}
