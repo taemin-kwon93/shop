@@ -24,7 +24,7 @@ public class MemberFrontController extends HttpServlet {
 			forward = new ActionForward();
 			forward.setRedirect(false);//false 값을 줬기 때문에, forwading한다.
 			forward.setPath("./member/member_login.jsp");
-//System.out.println("로그인 URL입력시 forward 값"+forward);
+System.out.println("MFC_로그인 URL입력시 forward 값"+forward);
 		} else if (command.equals("/MemberJoin.me")) {
 			forward = new ActionForward();
 			forward.setRedirect(false);
@@ -47,11 +47,11 @@ public class MemberFrontController extends HttpServlet {
 		
 		//MemberLogin.me -> member_login.jsp -> MemberLoginAction.me
 		else if (command.equals("/MemberLoginAction.me")) {
-//System.out.println("jsp로부터 값을 받아옴.");
-//System.out.println("ID: "+request.getParameter("MEMBER_ID"));
+System.out.println("MFC_jsp로부터 값을 받아옴.");
+System.out.println("MFC_ID: "+request.getParameter("MEMBER_ID"));
 			action = new MemberLoginAction();
 			try {
-System.out.println("로그인 시도");
+System.out.println("MFC_로그인 시도");
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -108,17 +108,17 @@ System.out.println("로그인 시도");
 			}
 		}
 		if(forward == null) {
-System.out.println("로그인 URL입력시 forward 값"+forward);
+System.out.println("MFC_로그인 URL입력시 forward 값"+forward);
 		}else {
 		if (forward.isRedirect()) {//ActionForward에 isRedirect가 true면
 			response.sendRedirect(forward.getPath());//경로에 따라서 Redirect한다.
-System.out.println("리다이렉트 작업 완료");
+System.out.println("MFC_리다이렉트 작업 완료");
 			//로그인 시에 리다이렉트를 한다.
 		} else {//ActionForward에 isRedirect가 false면 forward한다.
 			RequestDispatcher dispatcher =
 					request.getRequestDispatcher(forward.getPath());
 			dispatcher.forward(request, response);
-System.out.println("포워드 작업 완료");
+System.out.println("MFC_포워드 작업 완료");
 //http://localhost:8083/shop/MemberLogin.me URL입력받으면 포워드 실행
 //forward()[전달하기]는 클라이언트가 요청하면서 전송한 데이터를 그대로 유지한다.
 //포워딩이 되더라도 주소가 변경되지 않는다. (같은 request영역을 공유하게 됨)

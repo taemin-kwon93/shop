@@ -54,13 +54,10 @@ public class AdminGoodsAddAction implements Action {
 			agb.setGOODS_CONTENT(multi.getParameter("goods_content"));
 			agb.setGOODS_SIZE(multi.getParameter("goods_size"));
 			agb.setGOODS_COLOR(multi.getParameter("goods_color"));
-			agb.setGOODS_AMOUNT(
-					Integer.parseInt(multi.getParameter("goods_amount")));
-			agb.setGOODS_PRICE(
-					Integer.parseInt(multi.getParameter("goods_price")));
+			agb.setGOODS_AMOUNT(Integer.parseInt(multi.getParameter("goods_amount")));
+			agb.setGOODS_PRICE(Integer.parseInt(multi.getParameter("goods_price")));
 			agb.setGOODS_IMAGE(fl.toString());
-			agb.setGOODS_BEST(
-					Integer.parseInt(multi.getParameter("goods_best")));
+			agb.setGOODS_BEST(Integer.parseInt(multi.getParameter("goods_best")));
 			
 			int result = agoodsdao.insertGoods(agb);
 			if (result <= 0){

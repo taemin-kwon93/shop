@@ -11,6 +11,24 @@
 <td colspan=2>
 <!-- 상품 등록 -->
 <table border="0" width="80%">
+<%-- form태그 GoodsAddAction.ag로 보냄 --%>
+
+<%-- input태그, select태그 내용 
+	베스트상품 디폴트 0 <input type="hidden" name="goods_best" value="0">
+	품목선택 <select name="goods_category" size="1">
+	상품이름 <input type="text" name="goods_name">
+	상품 가격<input type="text" name="goods_price">
+	색깔 <input type="text" name="goods_color">
+	수량 <input type="text" name="goods_amount">
+	사이즈 <input type="text" name="goods_size">
+	제품정보 <textarea name="goods_content" cols=50 rows=15></textarea>
+	메인 제품이미지(gif) <input type="file" name="file4">
+	제품이미지1(gif) <input type="file" name="file3">
+	제품이미지2(gif) <input type="file" name="file2">
+	제품이미지3(gif) <input type="file" name="file1">
+	
+	제출 <input type="submit" value="등록">&nbsp;
+		<input type="reset" value="다시쓰기"> --%>
 <form name="goodsform" action="./GoodsAddAction.ag" method="post"
 	enctype="multipart/form-data">
 	<input type="hidden" name="goods_best" value="0">
@@ -76,8 +94,7 @@
 				<p align="center"><font size=2>제품정보</font></p>
 			</td>
 			<td width="346">
-				<textarea 
-				name="goods_content" cols=50 rows=15></textarea>
+				<textarea name="goods_content" cols=50 rows=15></textarea>
 			</td>
 		</tr>
 		<tr>

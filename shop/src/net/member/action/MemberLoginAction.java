@@ -23,16 +23,16 @@ public class MemberLoginAction implements Action{
 			session.setAttribute("id", id);
 	
 			if(memberdao.isAdmin(id)){//관리자인지 확인
-//System.out.println("관리자 로그인");
+System.out.println("MLA_관리자 로그인");
 				forward.setRedirect(true);
 				forward.setPath("./GoodsList.ag"); 
 				return forward;
 			}else{
-//System.out.println("일반회원 로그인");
+System.out.println("MLA_일반회원 로그인");
 				forward.setRedirect(true);
 				forward.setPath("./GoodsList.go?item=new_item"); 
 				/*일반회원 로그인시 item 값에 new_item 을 주는 시작점.*/
-/*System.out.println("로그인 하고 상품리스트로 넘어갈때 forward값 : " + forward);*/ /*->net.member.action.ActionForward@43727390*/
+System.out.println("MLA_로그인 하고 상품리스트로 넘어갈때 forward값 : " + forward); /*->net.member.action.ActionForward@43727390*/
 				return forward;
 			}
 		}else if(check == 0){//비밀번호가 틀린 경우

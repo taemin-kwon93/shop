@@ -108,6 +108,7 @@ function openZipcode(joinform){
 						+"scrollbars=yes,resizable=no,"
 						+"width=410,height=400");
 }	
+<%-- forward.setPath("./member/member_zipcode.jsp"); --%>
 
 function gNumCheck(){
 	if(event.keyCode >=48 && event.keyCode <=57) {

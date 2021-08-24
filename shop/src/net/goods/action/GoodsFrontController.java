@@ -25,12 +25,12 @@ public class GoodsFrontController extends HttpServlet {
 
 	private void processRequest(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		String requestURI = request.getRequestURI();
-System.out.println(requestURI);
+System.out.println("GFC_processRequest requestURI값"+requestURI);
 		/*request.getRequestURI() 함수 = 프로젝트 + 파일경로까지 가져옵니다.
 		  예)  http://localhost:8080/shop/GoodsList.go
 		  [return]/shop/GoodsList.go를 가져옵니다 */
 		String contextpath = request.getContextPath();
-System.out.println(contextpath);
+System.out.println("GFC_processRequest contextpath값"+contextpath);
 		/*request.getContextPath() 함수 = 프로젝트 Path만 가져옵니다.
 		  (예시. http://localhost:8080/shop/GoodsList.go )
 	   	  [return] /shop, 즉 프로젝트 이름을 가져옵니다.
@@ -38,7 +38,7 @@ System.out.println(contextpath);
 		String command = requestURI.substring(contextpath.length());
 		/*/shop/GoodsList.go에서 substring(잘릴 글자/shop), 글자를 잘라냅니다.
 		  따라서 String command="/GoodsList.go"; */
-System.out.println(command);
+System.out.println("GFC_processRequest command값"+command);
 		ActionForward forward = null;
 		Action action = null;
 		
@@ -53,21 +53,21 @@ System.out.println(command);
 		else if (command.equals("/GoodsList.go")) {
 			action = new GoodsListAction();
 			try {
-/*System.out.println(forward);*/  /*42행쯤, forward=null;*/
+System.out.println("GFC_"+forward); /*42행쯤, forward=null;*/
 				forward = action.execute(request, response);
-/*System.out.println(forward);*/ /*net.goods.action.ActionForward@2c5b5cce*/
+System.out.println("GFC_"+forward); /*net.goods.action.ActionForward@2c5b5cce*/
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
 		
 		if (forward != null) {
-System.out.println("포워드 != null");
+System.out.println("GFC_포워드 != null");
 			if (forward.isRedirect()) {
-System.out.println("포워드 isRedirect()");
+System.out.println("GFC_포워드 isRedirect()");
 				response.sendRedirect(forward.getPath());
 			} else {
-System.out.println("포워드 dispatcher");
+System.out.println("GFC_포워드 dispatcher");
 				RequestDispatcher dispatcher = request.getRequestDispatcher(forward.getPath());
 				dispatcher.forward(request, response);
 				//설정된 Dispatcher로 요청과 응답 권한을 넘기는 작업

@@ -33,10 +33,12 @@ public class AdminGoodsFrontController extends HttpServlet {
 				forward=action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
-			}		
+			}
+		//관리자 로그인후 List목록 띄움
 		}else if(command.equals("/GoodsList.ag")){
 			action=new AdminGoodsListAction();
 			try {
+System.out.println("AGFC_관리자 로그인");
 				forward=action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -45,6 +47,7 @@ public class AdminGoodsFrontController extends HttpServlet {
 			forward=new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("./admingoods/admin_goods_write.jsp");
+			
 		}else if(command.equals("/GoodsDelete.ag")){
 			action=new AdminGoodsDeleteAction();
 			try {
@@ -68,9 +71,11 @@ public class AdminGoodsFrontController extends HttpServlet {
 			}
 		}
 		
-		if(forward.isRedirect()){			
+		if(forward.isRedirect()){
+System.out.println("AGFC_Redirect");
 			response.sendRedirect(forward.getPath());			
-		}else{			
+		}else{		
+System.out.println("AGFC_Dispatcher");
 			RequestDispatcher dispatcher=
 				request.getRequestDispatcher(forward.getPath());
 			dispatcher.forward(request, response);			

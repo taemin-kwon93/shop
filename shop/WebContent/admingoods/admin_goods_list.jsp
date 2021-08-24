@@ -4,6 +4,7 @@
 <%@ page import="net.admin.goods.db.*"%>
 <%
 	Collection list = (Collection) request.getAttribute("list");
+	//리퀘스트 영역으로 부터 list를 받아옴, AdminGoodsListAction 22행에서 list등록 함.
 	Object obj[] = list.toArray();
 	GoodsBean agb = null;
 %>
