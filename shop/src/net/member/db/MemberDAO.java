@@ -325,6 +325,7 @@ public class MemberDAO {
 				String addr=sido+ " "+gugun+ " "+dong+ " "+ri+ " "+bunji;
 				
 				zipcodeList.add(zipcode+","+addr);
+System.out.println(zipcodeList);//(ex.[123-456,서울 종로구 관철동  13-13])
 			}
 			
 			return zipcodeList;
