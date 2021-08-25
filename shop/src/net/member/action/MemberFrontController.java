@@ -59,8 +59,7 @@ System.out.println("MFC_로그인 시도");
 		} else if (command.equals("/MemberJoinAction.me")) {//요청 URL이 MemberJoinAction.me이면,
 			action = new MemberJoinAction();//MemberJoinAction객체 생성해서 action에 담는다.
 			try {
-				forward = action.execute(request, response);/*회원가입시 MemberJoinAction()클래스의
-				ActionForward타입의 리턴을 받는 execute메소드는 null을 리턴한다.*/
+				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
